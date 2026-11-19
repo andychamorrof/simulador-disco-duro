@@ -601,10 +601,10 @@ th { color: var(--muted); font-size: .78rem; font-weight: 600; }
     function ln(id, d, label, lx, ly) { var a = on[id]; return '<path d="' + d + '" style="fill:none;stroke:' + (a ? col : 'var(--muted)') + ';stroke-width:' + (a ? 2.2 : 1.2) + '" marker-end="url(#' + (a ? 'ah3' : 'ah2') + ')"/>' + (label ? svgText(lx, ly, label, a ? 'fill:' + col + ';font-weight:600' : '') : ''); }
     s += bx('T', 160, 8, 300, 42, ['Avanzar el reloj al evento más próximo', 'reloj ← mín(próxima llegada, próximo fin)']);
     s += ln('eA', 'M260,50 L260,62 L150,62 L150,80', 'llegada', 158, 74) + ln('eB', 'M360,50 L360,62 L470,62 L470,80', 'fin de servicio', 478, 74);
-    s += bx('A1', 60, 80, 180, 34, ['Llegada del pedido i']) + ln('A1', 'M150,114 L150,128') + bx('A2', 50, 128, 200, 46, ['Generar la próxima llegada', 't + Exp(λ); cilindro, tipo, tamaño']);
+    s += bx('A1', 60, 80, 180, 34, ['Llegada del pedido i']) + ln('A1', 'M150,114 L150,128') + bx('A2', 50, 128, 200, 46, ['Generar la próxima llegada', 't + Exp(λ); cilindro, tipo, tamaño, giro']);
     s += ln('A2', 'M150,174 L150,188') + dm('D1', 150, 214, '¿Brazo libre?');
     s += ln('eY1', 'M86,214 L72,214 L72,262', 'sí', 60, 208) + ln('eN1', 'M214,214 L228,214 L228,262', 'no', 222, 208);
-    s += bx('A3', 6, 262, 134, 56, ['Iniciar servicio', 'generar giro y tamaño;', 'programar el fin']) + bx('A4', 160, 262, 136, 56, ['Entrar a la cola', 'Q ← Q + 1']);
+    s += bx('A3', 6, 262, 134, 56, ['Iniciar servicio', 'calcular la búsqueda;', 'programar el fin']) + bx('A4', 160, 262, 136, 56, ['Entrar a la cola', 'Q ← Q + 1']);
     s += bx('B1', 380, 80, 180, 34, ['Fin de servicio del pedido i']) + ln('B1', 'M470,114 L470,128') + bx('B2', 370, 128, 200, 46, ['Registrar la respuesta', 'fin − llegada; brazo libre']);
     s += ln('B2', 'M470,174 L470,188') + dm('D2', 470, 214, '¿Cola vacía?');
     s += ln('eY2', 'M406,214 L392,214 L392,262', 'sí', 380, 208) + ln('eN2', 'M534,214 L548,214 L548,262', 'no', 542, 208);
